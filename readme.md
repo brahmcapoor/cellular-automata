@@ -13,9 +13,17 @@ This is a simple Cellular Automation, inspired by [this video](https://www.youtu
 ### Installation
 1. Download or clone the repository
 2. Make sure numpy and matplotlib are installed
+3. 
+    ```
+    pip install numpy
+    pip install matplotlib
+    ```
+    
 3. Run
 
+    ```
     python3 main.py
-
+    ```
+    
 ### Demo
 ![A demo of it in action](https://github.com/brahmcapoor/cellular-automata/blob/master/Demo.gif)
