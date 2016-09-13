@@ -26,6 +26,7 @@ This is a simple Cellular Automation, inspired by [this video](https://www.youtu
     ```
 
 ### Demo
+##### (with random initialization)
 ![A demo of it in action](https://github.com/brahmcapoor/cellular-automata/blob/master/Demo.gif)
 
 ### Where this is going
