@@ -18,4 +18,4 @@ This is a simple Cellular Automation, inspired by [this video](https://www.youtu
     python3 main.py
 
 ### Demo
-[A demo of it in action](https://github.com/brahmcapoor/cellular-automata/blob/master/Demo.gif)
+![A demo of it in action](https://github.com/brahmcapoor/cellular-automata/blob/master/Demo.gif)
