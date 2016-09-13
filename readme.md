@@ -13,17 +13,20 @@ This is a simple Cellular Automation, inspired by [this video](https://www.youtu
 ### Installation
 1. Download or clone the repository
 2. Make sure numpy and matplotlib are installed
-3. 
+3.
     ```
     pip install numpy
     pip install matplotlib
     ```
-    
+
 3. Run
 
     ```
     python3 main.py
     ```
-    
+
 ### Demo
 ![A demo of it in action](https://github.com/brahmcapoor/cellular-automata/blob/master/Demo.gif)
+
+### Where this is going
+I have a couple of ideas for what to add (other rules, converting text strings to their binary representations and seeing if anything interesting comes from that), but no clear direction. If you have any ideas, feel free to let me know or even better, submit a Pull Request!
