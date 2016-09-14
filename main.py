@@ -13,7 +13,7 @@ def random_initial_state(n_cells=100, n_generations=100):
     return spacetime
 
 
-def initialize(n_cells=0, n_generations=100):
+def initialize(n_cells=0, n_generations=100, rule={}):
         initial_state = random_initial_state(n_cells, n_generations)
 
         cmap = colors.ListedColormap(['gray', 'white', 'black'])
@@ -30,7 +30,7 @@ def initialize(n_cells=0, n_generations=100):
                           norm=norm)
 
         ani = animation.FuncAnimation(fig, next_generation,
-                                      fargs=(grid, initial_state),
+                                      fargs=(grid, initial_state, rule),
                                       frames=n_generations - 1,
                                       interval=50,
                                       blit=False)
@@ -38,11 +38,11 @@ def initialize(n_cells=0, n_generations=100):
         plt.show()
 
 
-def next_generation(i, grid, initial_state):
+def next_generation(i, grid, initial_state, rule):
     current_generation = initial_state[i]
     new_state = initial_state.copy()
 
-    new_generation = process(current_generation)
+    new_generation = process(current_generation, rule)
 
     new_state[i + 1] = new_generation
 
@@ -52,7 +52,7 @@ def next_generation(i, grid, initial_state):
     return grid,
 
 
-def process(generation):
+def process(generation, rule):
     new_generation = []
 
     for i, cell in enumerate(generation):
@@ -64,31 +64,34 @@ def process(generation):
         else:
             neighbours = [generation[i - 1], cell, generation[i + 1]]
 
-        new_generation.append(cell_in_next_generation(tuple(neighbours)))
+        new_generation.append(rule[tuple(neighbours)])
 
     return new_generation
 
 
-def cell_in_next_generation(neighbours):
-    # Rule 18
+def generate_rule(rule):
+    rule_str = format(rule, '#010b')[2:]
+
     rule = {
-        (2, 2, 2): 1,
-        (2, 2, 1): 1,
-        (2, 1, 2): 1,
-        (2, 1, 1): 2,
-        (1, 2, 2): 1,
-        (1, 2, 1): 1,
-        (1, 1, 2): 2,
-        (1, 1, 1): 1
+        (2, 2, 2): int(rule_str[0]) + 1,
+        (2, 2, 1): int(rule_str[1]) + 1,
+        (2, 1, 2): int(rule_str[2]) + 1,
+        (2, 1, 1): int(rule_str[3]) + 1,
+        (1, 2, 2): int(rule_str[4]) + 1,
+        (1, 2, 1): int(rule_str[5]) + 1,
+        (1, 1, 2): int(rule_str[6]) + 1,
+        (1, 1, 1): int(rule_str[7]) + 1
     }
 
-    return rule[neighbours]
+    return rule
 
 
 def main():
     n_cells = int(input("Number of cells: "))
     n_generations = int(input("Number of generations: "))
-    initial_state = initialize(n_cells, n_generations)
+    rule = int(input("Rule number: "))
+    rule = generate_rule(rule)
+    initial_state = initialize(n_cells, n_generations, rule)
 
 if __name__ == '__main__':
     main()
