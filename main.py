@@ -16,7 +16,7 @@ def random_initial_state(n_cells=100, n_generations=100):
 def initialize(n_cells=0, n_generations=100, rule={}):
         initial_state = random_initial_state(n_cells, n_generations)
 
-        cmap = colors.ListedColormap(['gray', 'white', 'black'])
+        cmap = colors.ListedColormap(['white', 'blue', 'grey'])
         bounds = [0, 1, 2, 2]
         norm = colors.BoundaryNorm(bounds, cmap.N)
 
