@@ -6,7 +6,7 @@ from matplotlib import colors
 
 
 def random_initial_state(n_cells=100, n_generations=100):
-    first_row = np.random.random_integers(1, 2, size=(1, n_cells))
+    first_row = np.random.choice([1,2], size=n_cells)
     spacetime = np.zeros(shape=(n_generations, n_cells))
     spacetime[0] = first_row
 
